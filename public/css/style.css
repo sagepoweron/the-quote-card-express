@@ -1,0 +1,64 @@
+@import url("reset.css");
+
+.background-img
+{
+	background-image: url("../images/background.jpg");
+	background-size: cover;
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	z-index: -1;
+	top: 0;
+}
+
+.main
+{
+	display: flex;
+	justify-content: center;
+	align-items: stretch;
+	min-height: 100vh;
+	padding: 100px;
+}
+
+.quote-container
+{
+	padding: 40px 100px;
+	border: solid 2px white;
+	text-align: center;
+	background-color: plum;
+	color: white;
+}
+
+.quote-text
+{
+	font-size: large;
+}
+.author-text
+{
+	font-size: small;
+	font-style: italic;
+	
+}
+
+q {
+  quotes: none;
+}
+article::before {
+  content: "“";
+  display: block;
+  font-size: 2em;
+  text-align: left;
+}
+article::after {
+  content: "“";
+  display: block;
+  font-size: 2em;
+  text-align: right;
+}
+
+
+
+@media (min-width: 800px) {
+}
+
+
