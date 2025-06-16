@@ -1,14 +1,26 @@
 "use strict"
-//require('dotenv').config();
 
 const elements = {
     quote: document.getElementById("quote"),
     author: document.getElementById("author"),
 };
 
-
 async function getRandomImage() {
-    const client_id = "key removed";
+    const endpoint = "http://localhost:8080/api/v1/getRandomImage";
+    try {
+        const response = await fetch(endpoint);
+        const returnedData = await response.json();
+        const receivedPhotoUrl = returnedData.data;
+
+        const imgDiv = document.querySelector(".background-img");
+        imgDiv.style.backgroundImage = `url("${receivedPhotoUrl}")`;
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+/*async function getRandomImage() {
+    const client_id = "removed";
     const endpoint = `https://api.unsplash.com/photos/random/?client_id=${client_id}`;
     try {
         const response = await fetch(endpoint);
@@ -19,21 +31,6 @@ async function getRandomImage() {
         imgDiv.style.backgroundImage = `url("${receivedPhotoUrl}")`;
     } catch (error) {
         console.error(error)
-    }
-}
-
-/*async function getRandomImage() {
-    const client_id = "YOUR_ACCESS_KEY";
-    const endpoint = `https://api.unsplash.com/photos/random/?client_id=${client_id}`;
-    try {
-        const response = await fetch(endpoint);
-        const returnedData = await response.json();
-        const receivedPhotoUrl = returnedData.urls.regular;
-
-        const imgDiv = document.querySelector(".background-img");
-        imgDiv.style.backgroundImage = `url(${receivedPhotoUrl})`;
-    } catch (error) {
-        console.error(error);
     }
 }*/
 
